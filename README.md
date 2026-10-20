@@ -53,6 +53,32 @@ fitness-app/
   passed), and `flutter build web` all succeed. See
   [mobile/README.md](mobile/README.md) for how to run it locally.
 
+## Deployment
+
+- **Backend** → [Railway](https://railway.app), project `fitness-app-backend`
+  (Laravel service + managed MySQL plugin). Deployed via `railway up` from
+  `backend/`; migrations run automatically on each deploy (see `Procfile`).
+  Production env vars (`APP_KEY`, `DB_*`, etc.) are set via `railway variables`
+  and reference the MySQL plugin's connection vars directly — nothing is
+  hardcoded.
+- **Web** → [Vercel](https://vercel.com), project `web` (static Vite/React
+  build). Deployed via `vercel --prod` from `web/`. `VITE_API_BASE_URL` is
+  set as a Vercel production env var pointing at the Railway backend's public
+  URL. `vercel.json` adds SPA rewrites so client-side routes (react-router)
+  work on refresh/deep links.
+- **Mobile** → not deployed anywhere yet (no app store listing); verified
+  locally only (see Status above). App store submission is a follow-up step.
+
+To redeploy after changes:
+
+```bash
+# Backend
+cd backend && railway up --service backend
+
+# Web
+cd web && vercel --prod
+```
+
 ## Why these stack choices
 
 - **react-native-web for the web client** (not a plain React app) was an
