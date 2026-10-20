@@ -11,3 +11,4 @@ build/
 ios/Pods/
 ios/.symlinks/
 android/.gradle/
+android/app/.cxx/
