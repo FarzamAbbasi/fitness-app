@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/api/AuthContext.tsx","./src/api/client.ts","./src/navigation/AppNavigator.tsx","./src/screens/LoginScreen.tsx","./src/screens/OnboardingScreen.tsx","./src/screens/PlanScreen.tsx","./src/screens/PodScreen.tsx","./src/screens/RegisterScreen.tsx","./src/screens/WorkoutLogScreen.tsx","./src/types/react-native.d.ts"],"version":"5.9.3"}
